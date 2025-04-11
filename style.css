@@ -1,0 +1,264 @@
+a {
+    position: relative;
+    text-decoration: none;
+    color: #f25c7e; /* your link color */
+    font-weight: bold;
+  }
+  
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* distance from text */
+    width: 0%;
+    height: 2px;
+    background-color: #f25c7e;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+  
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    color: #1c1c1e;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f25c7e;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links li {
+    color: #444;
+    cursor: pointer;
+  }
+  
+  .nav-links .active {
+    color: #f25c7e;
+    border-bottom: 2px solid #f25c7e;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  
+  .subscribe,
+  .contribute {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+  }
+  
+  .subscribe {
+    background: #f25c7e;
+    color: #fff;
+  }
+  
+  .contribute {
+    background: #e0e0e0;
+    color: #333;
+  }
+  
+  .lang {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .lang span {
+    margin-left: 0.5rem;
+    color: #999;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .card {
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: brightness(1.1);
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #1c1c1e;
+  }
+  
+  .card-content a {
+    color: #f25c7e;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .date {
+    display: block;
+    color: #999;
+    font-size: 0.85rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .nav-links {
+      gap: 1rem;
+    }
+  
+    .nav-right {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+        text-align: center;
+    }
+
+    .grid-container {
+      padding: 1rem;
+      gap: 1rem;
+    }
+  
+    .card img {
+      height: 180px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+        margin-left: 10px;
+    }
+    
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+  
+    .nav-right {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .logo {
+      font-size: 1.25rem;
+    }
+  
+    .subscribe,
+    .contribute {
+      width: 100%;
+      padding: 0.75rem;
+    }
+  
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .card img {
+      height: 160px;
+    }
+  }
+  
+  /* Hamburger styles */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f25c7e;
+  }
+  
+  /* Show hamburger on mobile */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      margin-top: 1rem;
+    }
+  
+    .nav-links.show {
+      display: flex;
+    }
+  
+    .nav-links li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+    }
+  
+    .navbar {
+      align-items: flex-start;
+    }
+  }
+  
